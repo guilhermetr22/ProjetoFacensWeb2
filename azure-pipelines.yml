@@ -7,15 +7,11 @@ trigger:
 - master
 
 pool:
-  vmImage: 'vs2017-win2016'
+  vmImage: 'vs2015-win2012r2'
 strategy:
   matrix:
-    Python35:
-      PYTHON_VERSION: '3.5'
     Python36:
       PYTHON_VERSION: '3.6.2'
-    Python37:
-      PYTHON_VERSION: '3.7'
   maxParallel: 3
 
 steps:
