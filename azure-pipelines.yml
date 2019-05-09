@@ -13,7 +13,7 @@ strategy:
     Python35:
       PYTHON_VERSION: '3.5'
     Python36:
-      PYTHON_VERSION: '3.6'
+      PYTHON_VERSION: '3.6.2'
     Python37:
       PYTHON_VERSION: '3.7'
   maxParallel: 3
@@ -21,7 +21,8 @@ strategy:
 steps:
 - task: UsePythonVersion@0
   inputs:
-    versionSpec: '$(PYTHON_VERSION)'
+    versionSpec: '3.6.2' 
+    addToPath: true 
     architecture: 'x64'
 
 - task: PythonScript@0
