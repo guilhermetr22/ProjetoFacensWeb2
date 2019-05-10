@@ -8,17 +8,11 @@ trigger:
 
 pool:
   vmImage: 'vs2017-win2016'
-strategy:
-  matrix:
-    Python36:
-      PYTHON_VERSION: '3.6'
-  maxParallel: 3
 
 steps:
 - task: UsePythonVersion@0
   inputs:
-    versionSpec: '3.6' 
-    addToPath: true 
+    versionSpec: '3.6'
     architecture: 'x64'
 
 - task: PythonScript@0
@@ -44,11 +38,9 @@ steps:
   displayName: 'Install prerequisites'
 
 
-- task: PublishTestResults@2
-  condition: succeededOrFailed()
+- task: TwineAuthenticate@0
   inputs:
-    testResultsFiles: '**/test-*.xml'
-    testRunTitle: 'Publish test results for Python $(python.version)'
-
+    artifactFeeds: web2
+    publishPackageMetadata: true
 
 - task: PublishBuildArtifacts@1
