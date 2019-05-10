@@ -44,3 +44,4 @@ steps:
     publishPackageMetadata: true
 
 - task: PublishBuildArtifacts@1
+- script: 'twine -r {web2/150654} --config-file $(PYPIRC_PATH) {package path to publish}'
