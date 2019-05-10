@@ -30,18 +30,3 @@ steps:
       project_location = path.dirname(path.abspath(manage_py))
       print('Found Django project in', project_location)
       print('##vso[task.setvariable variable=projectRoot]{}'.format(project_location))
-
-- script: |
-    python -m pip install --upgrade pip setuptools wheel
-    pip install -r requirements.txt
-    pip install unittest-xml-reporting
-  displayName: 'Install prerequisites'
-
-
-- task: TwineAuthenticate@0
-  inputs:
-    artifactFeeds: web2
-    publishPackageMetadata: true
-
-- task: PublishBuildArtifacts@1
-- script: 'twine -r {web2/150654} --config-file $(PYPIRC_PATH) {package path to publish}'
