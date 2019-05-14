@@ -10,13 +10,13 @@ pool:
 strategy:
   matrix:
     Python36:
-      PYTHON_VERSION: '3.6.2'
+      PYTHON_VERSION: '3.6'
   maxParallel: 3
 steps:
 
 - task: UsePythonVersion@0
   inputs:
-    versionSpec: '3.6.2' 
+    versionSpec: '3.6' 
     addToPath: true 
     architecture: 'x64'
 
