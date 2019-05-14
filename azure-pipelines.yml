@@ -20,7 +20,7 @@ steps:
     versionSpec: '3.6.2' 
     addToPath: true 
     architecture: 'x64'
-	
+
 - task: PythonScript@0
   displayName: 'Export project path'
   inputs:
@@ -36,8 +36,8 @@ steps:
       project_location = path.dirname(path.abspath(manage_py))
       print('Found Django project in', project_location)
       print('##vso[task.setvariable variable=projectRoot]{}'.format(project_location))
-	  
-	  
+
+
 - script: |
     python -m pip install --upgrade pip setuptools wheel
     pip install -r requirements.txt
